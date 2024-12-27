@@ -1,6 +1,11 @@
-package com.nexus
+package com.nexus.gateway
+
+import com.nexus.gateway.monitoring.configureMonitoring
+import com.nexus.gateway.routes.configureRouting
 
 import io.ktor.server.application.*
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
@@ -10,8 +15,6 @@ fun Application.module() {
     configureHTTP()
     configureSerialization()
     configureSecurity()
-    configureAdministration()
-    configureSockets()
     configureMonitoring()
     configureRouting()
 }
